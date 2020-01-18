@@ -14,10 +14,7 @@ jobs:
       #   submodules: true
     - name: install dep
       run: |
-        docker pull cusdeb/pieman
-        wget https://raw.githubusercontent.com/tolstoyevsky/pieman/master/docker-pieman.sh -O docker-pieman.sh
-        chmod +x docker-pieman.sh
-        ./docker-pieman.sh -e DEVICE=rpi-2-b -e OS=ubuntu-xenial-armhf -e INCLUDES=htop,mc
+        cd pi-gen && chmod +x ./build-docker.sh && ./build-docker.sh
         ls
     # - name: Build
     #   run: |
