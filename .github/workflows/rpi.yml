@@ -14,8 +14,10 @@ jobs:
       #   submodules: true
     - name: install dep
       run: |
-        sudo apt-get install binfmt-support bison dosfstools flex gcc git gnupg make parted python-dev python3-pip python3-setuptools qemu-user-static swig rsync xz-utils
-    
+        docker pull cusdeb/pieman
+        wget https://raw.githubusercontent.com/tolstoyevsky/pieman/master/docker-pieman.sh -O docker-pieman.sh
+        chmod +x docker-pieman.sh
+        ./docker-pieman.sh
     # - name: Build
     #   run: |
     #     sed -i 's;baseURL = "http://blog.alphaz.cn/";baseURL = "https://yhnu.github.io/";g' config.toml && cat config.toml
