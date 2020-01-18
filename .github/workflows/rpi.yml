@@ -15,7 +15,7 @@ jobs:
     - name: install dep
       run: |
         ls
-        cd pi-gen && chmod +x ./build-docker.sh && ./build-docker.sh
+        chmod +x build-docker.sh && ./build-docker.sh
         ls
     # - name: Build
     #   run: |
