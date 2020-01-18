@@ -17,7 +17,8 @@ jobs:
         docker pull cusdeb/pieman
         wget https://raw.githubusercontent.com/tolstoyevsky/pieman/master/docker-pieman.sh -O docker-pieman.sh
         chmod +x docker-pieman.sh
-        ./docker-pieman.sh
+        ./docker-pieman.sh -e DEVICE=rpi-2-b -e OS=ubuntu-xenial-armhf -e INCLUDES=htop,mc
+        ls
     # - name: Build
     #   run: |
     #     sed -i 's;baseURL = "http://blog.alphaz.cn/";baseURL = "https://yhnu.github.io/";g' config.toml && cat config.toml
