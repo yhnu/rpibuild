@@ -1,0 +1,44 @@
+name: rpibuild
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+      # with:
+      #   submodules: true
+    - name: install dep
+      run: |
+        sudo apt-get install binfmt-support bison dosfstools flex gcc git gnupg make parted python-dev python3-pip python3-setuptools qemu-user-static swig rsync xz-utils
+    
+    # - name: Build
+    #   run: |
+    #     sed -i 's;baseURL = "http://blog.alphaz.cn/";baseURL = "https://yhnu.github.io/";g' config.toml && cat config.toml
+    #     hugo
+    
+    # - name: FixImage
+    #   run: |
+    #     grep -rl 'src=".*/image-' public/ | xargs sed -i 's;src=".*/image-;src="image-;g'
+    # - name: Deploy
+    #   env:
+    #     ACTIONS_DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+    #     PUBLISH_BRANCH: master
+    #     PUBLISH_DIR: ./public
+    #     # PUBLISH_DIR: ./public
+    #     SCRIPT_MODE: true
+    #   run: |
+    #     wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2/entrypoint.sh
+    #     chmod +x entrypoint.sh
+    #     bash ./entrypoint.sh
+
+    # - name: 7Niu
+    #   run: |
+    #     chmod +x ./qiniu/qshell
+    #     ./qiniu/qshell account e48-XlFoDI86AmRWBvmPyUXQGGQUsNIHVz2t7RkH uv7scH4ABVPQCh_8rVabeTW3S6Q74GPoiuhzkJtf 7niu
+    #     ./qiniu/qshell qupload sync.conf -c 20
+        
